@@ -1,0 +1,142 @@
+() {
+  const [data, setData] = useState(0);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    event.target[0].value > 25
+      ? setData((data) => data + 1)
+      : setData((data) => data - 1);
+    event.target[1].value > 150
+      ? setData((data) => data - 1)
+      : setData((data) => data + 1);
+    if (event.target[2].value) setData((data) => data - 1);
+    if (event.target[3].value) setData((data) => data + 1);
+    if (event.target[4].value) setData((data) => data + 1);
+    if (event.target[5].value) setData((data) => data + 1);
+  };
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <span>age : </span>
+          <input type="number" placeholder="age" className="m-4" />
+        </div>
+        <span>hight : </span>
+        <input type="number" placeholder="hight" className="m-4" />
+        <span>town : </span>
+        <input type="text" placeholder="town" className="m-4" />
+        <span>city : </span>
+        <input type="text" placeholder="city" className="m-4" />
+        <span>village : </span>
+        <input type="text" placeholder="village" className="m-4" />
+        <label htmlFor="dm">do you have diabetes ?</label>
+        <input type="checkbox" className="dm" name="dm" />
+        <button
+          type="submit"
+          className="bg-blue-400 hover:bg-blue-300 rounded-full m-1 p-2"
+        >
+          submit
+        </button>
+      </form>
+      <h1>{`the risk factor is : ${data}`}</h1>
+    </div>
+  );
+}
+
+
+
+
+git config --global http.sslCAInfo "C:\Program Files\Git\mingw64\ssl\cert.pem"
+
+
+Article() {
+  return (
+    <div className="article">
+      <div className="rightSide">
+        <img className="article-image" src="./src/assets/download.jpg" alt="" />
+      </div>
+      <div className="leftSide">
+        <ul className="details">
+          <p className="articl-name pb-5 ">
+            دانلود سریال better call saul بهتره با ساول تماس بگیری
+          </p>
+          <li>ای ام دی بی</li>
+          <li>ژانر</li>
+          <li>سال ساخت </li>
+          <li>محصول</li>
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+
+
+
+
+
+Card(props) {
+  /*cards will go in the top slider ...*/
+  return (
+    <div className="card group">
+      <img className="media-image" src="./src/assets/download.jpg" alt="" />
+      <div className="tag group-hover:scale-100">
+        <span className="badge--rating">{props.rating}</span>
+        <p className="media-name">{props.title}</p>
+        <span className="click-icon ">&#62;</span>
+      </div>
+    </div>
+  );
+}
+
+
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html {
+  @apply bg-primary;
+}
+.card {
+  @apply container relative w-[175px] h-[259.641px] inline-block float-right;
+}
+.tag {
+  width: 175px;
+  height: 259.641px;
+  justify-content: space-between;
+  @apply flex bg-black opacity-80 absolute
+     text-white top-0 p-2 transition-all duration-75
+    align-text-bottom scale-0 rounded;
+}
+.click-icon {
+  @apply absolute bottom-5 right-3 bg-orange-700 px-3 py-1.5 rounded-full;
+}
+.media-name {
+  @apply font-bold absolute bottom-5;
+}
+.media-image {
+  @apply rounded;
+}
+.badge--rating {
+  @apply top-4 bg-black px-2 rounded-xl left-[70px] absolute text-golden;
+}
+.article-image {
+  box-shadow: none;
+  transition-duration: 300ms;
+  @apply flex rounded;
+}
+.article-image:hover {
+  box-shadow: 0px 0px 12.5px gray;
+  transition-duration: 300ms;
+}
+
+.article {
+  @apply bg-secondary flex p-5 flex-row-reverse;
+}
+.leftSide {
+  @apply flex text-white text-right py-5;
+}
+li {
+  @apply px-4 py-3;
+}

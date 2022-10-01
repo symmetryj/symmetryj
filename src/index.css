@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+html {
+  background-color: #1d1d1d;
+  padding: 0;
+  margin: 0;
+  @apply text-white bg-background;
+}
+h2 {
+  font-weight: bold;
+}
+.questionForm {
+  @apply bg-component p-5 block rounded;
+}
+.submit {
+  @apply hover:bg-white hover:text-component font-bold duration-300 rounded p-3 border-2 border-white my-5;
+}
+li {
+  @apply hover:bg-white hover:text-component font-bold duration-300 rounded  border-2 border-white;
+}
+.list--item-no,
+.list--item-yes {
+  @apply col-span-3;
+}
+ul {
+  @apply grid grid-cols-1  gap-1 md:grid-cols-2 2xl:grid-cols-3;
+}
+
+/* input design */
+input[type="checkbox"],
+input[type="radio"] {
+  display: none;
+}
+label {
+  padding: 0;
+}
+span {
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  transition: background-color 150ms ease-in;
+}
+
+span:hover {
+  background-color: white;
+  color: #1d1d1d;
+}
+
+input[type="checkbox"]:checked + span,
+input[type="radio"]:checked + span {
+  background: green;
+}
+
+input[type="checkbox"]:checked:hover + span,
+input[type="radio"]:checked:hover + span {
+  color: rgb(255, 255, 255);
+  background: rgba(0, 128, 0, 0.7);
+}
